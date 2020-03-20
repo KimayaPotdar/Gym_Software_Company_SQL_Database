@@ -1,0 +1,96 @@
+Create table Employee (EmployeeId INTEGER PRIMARY KEY, 
+					   FirstName TEXT NOT NULL, 
+					   LastName TEXT NOT NULL,
+					   DateOfBirth DATETIME NOT NULL,
+					   DesignationId TEXT NOT NULL,
+					   DepartmentId INTEGER NOT NULL,
+					   SuperiorId INTEGER,
+					   DateOfJoining DATETIME NOT NULL,
+					   EmailId TEXT NOT NULL UNIQUE,
+					   MobileNo NUMERIC(10) UNIQUE,
+					   Address TEXT,
+					   
+					   FOREIGN KEY (DesignationId) REFERENCES Designation (DesignationId) 
+					   ON DELETE NO ACTION ON UPDATE CASCADE,
+					   
+					   FOREIGN KEY (DepartmentId) REFERENCES Department (DepartmentId) 
+					   ON DELETE NO ACTION ON UPDATE CASCADE			   
+);
+
+CREATE TABLE Designation(DesignationId INTEGER PRIMARY KEY,
+						 DesignationName TEXT NOT NULL);
+						 
+CREATE TABLE Department(DepartmentId INTEGER PRIMARY KEY,
+						DepartmentName TEXT NOT NULL);
+
+CREATE TABLE Clients(ClientId INTEGER PRIMARY KEY,
+					 Name TEXT NOT NULL,
+					 Country TEXT NOT NULL,
+					 Project INTEGER,
+					 Plan INTEGER,
+					 EmailId TEXT NOT NULL UNIQUE,
+					 ContactNo NUMERIC(10) UNIQUE,
+					 
+					 FOREIGN KEY (Plan) REFERENCES SoftwarePlans (PlanId) 
+					 ON DELETE NO ACTION ON UPDATE CASCADE,
+					 
+					 FOREIGN KEY (Project) REFERENCES Project (ProjectId) 
+					 ON DELETE NO ACTION ON UPDATE CASCADE
+);
+
+CREATE TABLE SoftwarePlans(PlanId INTEGER PRIMARY KEY,
+				   PlanName TEXT NOT NULL,
+				   BillingType TEXT NOT NULL,
+				   NoOfAllowedUsers TEXT NOT NULL,
+				   Description TEXT,
+				   Cost NUMERIC NOT NULL
+);
+
+CREATE TABLE Project(ProjectId INTEGER PRIMARY KEY,
+					 PlanId INTEGER,
+					 StartDate DATETIME,
+					 EndDate DATETIME,
+					 PointOfContact INTEGER,
+					 
+					 FOREIGN KEY (PointOfContact) REFERENCES Employee (EmployeeId) 
+					 ON DELETE NO ACTION ON UPDATE CASCADE
+);
+
+CREATE TABLE Users(UserId INTEGER PRIMARY KEY, 
+				   FirstName TEXT NOT NULL, 
+				   LastName TEXT NOT NULL,
+				   DateOfBirth DATETIME NOT NULL,
+				   EmailId TEXT NOT NULL UNIQUE,
+				   ContactNo NUMERIC(10) UNIQUE
+
+);
+
+CREATE TABLE UserCurrentPlan(InvoiceId INTEGER PRIMARY KEY,
+							 UserId INTEGER,
+							 MembershipType TEXT,
+							 ClientId INTEGER,
+							 PlanId INTEGER,
+							 StartDate DATETIME,
+							 EndDate DATETIME,
+							 BalanceDue NUMERIC,
+							 PrepaidAmount NUMERIC,
+							 PointOfContactId INTEGER,
+							 
+							 FOREIGN KEY (UserId) REFERENCES Users (UserId) 
+							 ON DELETE NO ACTION ON UPDATE CASCADE,
+							 
+							 FOREIGN KEY (ClientId) REFERENCES Clients (ClientId) 
+							 ON DELETE NO ACTION ON UPDATE CASCADE,
+							 
+							 FOREIGN KEY (PlanId) REFERENCES UserPlans (UserPlanId) 
+							 ON DELETE NO ACTION ON UPDATE CASCADE,
+							 
+							 FOREIGN KEY (PointOfContactId) REFERENCES Employee (EmployeeId) 
+							 ON DELETE NO ACTION ON UPDATE CASCADE				 
+);
+ 
+CREATE TABLE UserPlans(UserPlanId INTEGER PRIMARY KEY,
+				   PlanName TEXT NOT NULL,
+				   Description TEXT,
+				   Cost NUMERIC NOT NULL
+);
