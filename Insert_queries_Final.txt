@@ -1,0 +1,98 @@
+
+INSERT INTO Designation(DesignationName) VALUES ("CEO"),("Director"),("Chief Marketing Officer"),("Chief Operating Officer"),("Chief Financial Officer"),("Project Manager"),("Developer"),("Tester"),("Sales Executive"),("Accountant"),("Intern"),("Project Lead"),("HR-BP"),("Chief Technology Officer");
+
+INSERT INTO Department(DepartmentName) VALUES ("General Management"),("Marketing"),("Sales"),("Finance"),("Legal"),("Operations"),("Human Resources"),("IT");
+
+INSERT INTO Employee(FirstName, LastName, DateOfBirth, DesignationId, DepartmentId, DateOfJoining, EmailId, MobileNo, Address)
+VALUES("Hadi", "Curtay", "27/11/1982", 1, 1, "1/4/2007", "hadi.curtay@fitnessforce.com", 9988776655, "Mumbai");
+
+INSERT INTO Employee(FirstName, LastName, DateOfBirth, DesignationId, DepartmentId, DateOfJoining, EmailId, MobileNo, Address)
+VALUES("PIYUSH ", "KUSHWAHA", "2/1/1987", 10, 4, "5/6/2016", "piyush.kushwaha@fitnessforce.com", 9384751251, "Ludhiana");
+
+INSERT INTO Employee(FirstName, LastName, DateOfBirth, DesignationId, DepartmentId, DateOfJoining, EmailId, MobileNo, Address)
+VALUES("Wilma", "Lasrado", "7/12/1991", 13, 7, "4/8/2018", "wilma.lasrado@fitnessforce.com", 8556615485, "Bhopal");
+
+INSERT INTO Employee(FirstName, LastName, DateOfBirth, DesignationId, DepartmentId,SuperiorId, DateOfJoining, EmailId, MobileNo, Address)
+VALUES("Vaishali", "Matavkar", "5/5/1984", 4, 6, 1, "1/4/2007", "vaishali.matavkar@fitnessforce.com", 7325148650, "Mumbai");
+
+INSERT INTO Employee(FirstName, LastName, DateOfBirth, DesignationId, DepartmentId, DateOfJoining, EmailId, MobileNo, Address)
+VALUES("Ramesh", "Dabhi", "15/4/1989", 12, 8, "12/5/2018", "ramesh.dabhi@fitnessforce.com", 8521645962, "Indore"),
+      ("Vinay", "Singh", "15/2/1988", 8, 8, "5/10/2014", "vinay.singh@fitnessforce.com", 9651452365, "Chennai");
+
+INSERT INTO Employee(FirstName, LastName, DateOfBirth, DesignationId, DepartmentId, DateOfJoining, EmailId, MobileNo, Address)
+VALUES("Parag", "Joshi", "5/5/1994", 9, 3, "1/4/2017", "parag.joshi@fitnessforce.com", 9458753261, "Delhi");
+
+INSERT INTO Employee(FirstName, LastName, DateOfBirth, DesignationId, DepartmentId, SuperiorId, DateOfJoining, EmailId, MobileNo, Address)
+VALUES("Vijay", "Singh", "1/7/1984", 3, 2, 1, "1/4/2007", "vijay.singh@fitnessforce.com", 9351458425, "Mumbai"),
+      ("Anjali", "Rathi", "17/10/1987", 4, 4, 1, "1/4/2007", "anjali.rathi@fitnessforce.com", 8325468799, "Mumbai"),
+      ("Sagar", "Phonde", "27/1/1989", 14, 8, 1, "1/4/2007", "sagar.phonde@fitnessforce.com", 9864578558, "Mumbai");
+	  
+UPDATE Employee SET DesignationId=5 where FirstName="Anjali";
+
+INSERT INTO Employee(FirstName, LastName, DateOfBirth, DesignationId, DepartmentId, SuperiorId, DateOfJoining, EmailId, MobileNo, Address)
+VALUES("Viral", "Jha", "1/7/1989", 6, 8, 10, "1/4/2017", "viral.jha@fitnessforce.com", 8621485211, "Chandigarh"),
+      ("Roshan", "Kumar", "7/1/1986", 6, 8, 10, "10/7/2014", "roshan.kumar@fitnessforce.com", 9784556542, "Jaipur"),
+      ("Subodh", "Desai", "7/12/1987", 6, 8, 10, "14/7/2015", "subodh.desai@fitnessforce.com", 7845126589, "Bhopal");
+	  
+	  
+INSERT INTO Employee(FirstName, LastName, DateOfBirth, DesignationId, DepartmentId, SuperiorId, DateOfJoining, EmailId, MobileNo, Address)
+VALUES("Sunny", "Sharma", "1/7/1994", 9, 3, 6, "11/7/2019", "sunny.sharma@fitnessforce.com", 8541265482, "Bangalore"),
+      ("Jolly", "D'Souza", "17/3/1993", 9, 3, 6, "10/7/2018", "jolly.dsouza@fitnessforce.com", 9751364151, "Mumbai"),
+      ("Priti", "Sawant", "3/2/1991", 7, 8, 5, "14/7/2018", "priti.sawant@fitnessforce.com", 8648556451, "Bhopal");
+	  
+INSERT INTO Employee(FirstName, LastName, DateOfBirth, DesignationId, DepartmentId, SuperiorId, DateOfJoining, EmailId, MobileNo, Address)
+VALUES("Sagar", "Patil", "16/10/1994", 7, 8, 5, "12/7/2017", "sagar.patil@fitnessforce.com", 9969004533, "Mumbai");
+
+INSERT INTO SoftwarePlans(PlanName,BillingType,NoOfAllowedUsers,Description,Cost)
+VALUES("Grow","Annually","4 Users","Modern tools to help you manage your business efficiently.",29999),
+      ("Professional","Annually","Unlimited","Ideal choice for taking your Gym business to the next level.",39999),
+      ("Ultimate","Annually","Unlimited","Best choice for multi-facility fitness centre.",79999);
+
+INSERT INTO Clients(Name, Country, EmailId, ContactNo)
+VALUES("FITNESS TIME", "UAE", "contact@fitnesstime.com", 9714141572),
+      ("FITNESS 360", "India", "contact@fitness360.com", 02225869541),
+      ("Talwalkar's", "India", "contact@talwalkars.com", 01165458965),
+      ("Fidelity Fitness Club", "India", "contact@fidelityfitnessclub.com", 04456851245),
+      ("AnyTime Fitness", "India", "contact@anytimefitness.com", 02286541258),
+      ("RESET", "India", "contact@reset.com", 01128652478);	  
+
+	  
+INSERT INTO Project(PlanId, StartDate, EndDate, Manager, ClientId) VALUES(2,"15/5/2019","15/5/2020", 11,3), (2,"25/11/2019","15/4/2020", 12,4),
+                    (2,"1/8/2019","1/7/2020", 13,6),(2,"28/1/2020","28/5/2020", 11,5);
+					
+INSERT INTO Users(FirstName,LastName,DateOfBirth,Country,EmailId,ContactNo) 
+    VALUES ("Aman","Joshi","21/2/1995","India","aman.joshi@gmail.com",9632587412),
+           ("Nida","Sheikh","1/12/1989","India","nida.sheikh@gmail.com",8614521456),
+           ("Anish","Patole","15/3/1994","India","anish.patole@gmail.com",8452153658),
+           ("Sana","Khan","13/5/1991","India","sana.khan@gmail.com",8458698545),
+           ("Pooja","Lenka","31/1/1992","India","pooja.lenka@gmail.com",8025452365),
+           ("Drishti","Chopra","11/2/1993","India","drishti.chopra@gmail.com",9052152465),
+           ("Priyal","Doshi","23/4/1997","India","priyal.doshi@gmail.com",9052458425),
+           ("Vini","Singh","24/6/1989","India","vini.singh@gmail.com",8051245265);
+
+INSERT INTO UserPlans(PlanName, Description, Cost) VALUES ("Punch Card","Purchase a 10 pass punch card and use for participation in group fitness classes or day passes for the gym.",2999),
+("Daily Drop in Rate","Try us out for a day or just drop in for any of our energizing group fitness classes.",299),
+("6 Week Test Drive Memberships","Want a 6 week Yoga tune up? How about 6 weeks of cycle classes to get you ready for the spring road bike season? If all you need is a 6 week quick start, we've got you covered too!",4999),
+("3 Month Shorty Memberships","if 3 months is all you need, we've got your covered. Discounts available for high school and college students during summer and winter breaks.",5999),
+("Monthly Pay-as-you-Go","This is a plan that offers flexibility without a minimum term contract. There is no minimum term required and members can cancel any time before the 25th of the month with no penalty",2599),
+("Annual Membership","Full year membership at a discounted price",9999);		   
+
+	  
+	  INSERT INTO UserSubscriptions(UserId,MembershipType,ClientId,PlanId,StartDate,EndDate,BalanceDue,PrepaidAmount,PointOfContactId)
+VALUES(1,"Gold",4,4,"1/1/2020","31/3/2020",0,5999,7),(2,"Platinum",5,6,"1/1/2020","31/12/2020",5000,4999,7),
+(3,"Platinum",6,4,"1/1/2020","31/3/2020",0,5999,7),(4,"Gold",4,4,"1/1/2020","31/3/2020",0,5999,15)
+
+UPDATE Employee SET SuperiorId=8 where EmployeeId=7;
+UPDATE Employee SET SuperiorId=5 where EmployeeId=6;
+UPDATE Employee SET SuperiorId=11 where EmployeeId=5;
+UPDATE Employee SET SuperiorId=9 where EmployeeId=2;
+UPDATE Employee SET SuperiorId=1 where EmployeeId=3;
+
+INSERT INTO Login(Username,UserId,Password) VALUES("AmanJoshi1995",1,"Aman1995"),("NidaSheikh1989",2,"Nida1989"),
+("AnishPatole1994",3,"Anish1994"),("SanaKhan1991",4,"Sana1991"),("PoojaLenka1992",5,"Pooja1992"),("DrishtiChopra1993",6,"Drishti1993"),
+("PriyalDoshi",7,"Priyal1997"),("ViniSingh1989",8,"Vini1989")
+
+UPDATE UserSubscriptions SET BalanceDue=2999 WHERE InvoiceId=3;
+UPDATE UserSubscriptions SET  PrepaidAmount=3000 WHERE InvoiceId=3;
+
+UPDATE Project SET PlanId=3 WHERE ProjectId=4;

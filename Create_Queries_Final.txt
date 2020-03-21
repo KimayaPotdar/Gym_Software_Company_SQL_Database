@@ -41,16 +41,16 @@ CREATE TABLE IF NOT EXISTS Project(ProjectId INTEGER PRIMARY KEY AUTOINCREMENT,
 					 PlanId INTEGER,
 					 StartDate DATETIME,
 					 EndDate DATETIME,
-                                  ClientId INTEGER,
+					 ClientId INTEGER,
 					 Manager INTEGER,
                                               
-                                  FOREIGN KEY (PlanId) REFERENCES SoftwarePlans (PlanId) 
+                     FOREIGN KEY (ClientId) REFERENCES Clients (ClientId) 
+					 ON DELETE NO ACTION ON UPDATE CASCADE
+					 
+					 FOREIGN KEY (PlanId) REFERENCES SoftwarePlans (PlanId) 
 					 ON DELETE NO ACTION ON UPDATE CASCADE,
 					 
 					 FOREIGN KEY (Manager) REFERENCES Employee (EmployeeId) 
-					 ON DELETE NO ACTION ON UPDATE CASCADE
-      
-                                  FOREIGN KEY (ClientId) REFERENCES Clients (ClientId) 
 					 ON DELETE NO ACTION ON UPDATE CASCADE
 );
 
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS Users(UserId INTEGER PRIMARY KEY AUTOINCREMENT,
 				   FirstName TEXT NOT NULL, 
 				   LastName TEXT NOT NULL,
 				   DateOfBirth DATETIME NOT NULL,
-                                       Country TEXT NOT NULL,
+                   Country TEXT NOT NULL,
 				   EmailId TEXT NOT NULL UNIQUE,
 				   ContactNo NUMERIC(10) UNIQUE CHECK (LENGTH(ContactNo) >= 10)
 
@@ -114,5 +114,3 @@ WHERE (c.ClientId=p.ClientId) AND (p.PlanId=s.PlanId) AND (p.Manager=e.EmployeeI
 SELECT u1.FirstName||" "||u1.LastName AS User, u1.DateOfBirth , c.Name as MemberOf, u2.PlanName, u2.Cost, u3.BalanceDue
 FROM Users u1, Clients c, UserPlans u2, UserSubscriptions u3
 WHERE (u1.UserId=u3.UserId) AND (u3.ClientId=c.ClientId) AND (u3.PlanId=u2.UserPlanId) AND u2.UserPlanId=4;
-
-
